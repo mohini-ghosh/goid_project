@@ -1,0 +1,110 @@
+/* registeredRiders.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e6f7ff, #f9f9f9); /* Light gradient background */
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Dark gray for text */
+}
+
+h1 {
+    text-align: center;
+    color: #004085; /* Dark blue color for header */
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Rider List Container */
+.rider-list {
+    max-width: 800px; /* Centered, maximum width */
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Individual Rider Item */
+.rider-item {
+    background-color: #ffffff; /* White background for each card */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 600px;
+}
+
+.rider-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly darker shadow on hover */
+}
+
+.rider-item h2 {
+    font-size: 1.6rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.rider-item p {
+    font-size: 1rem;
+    color: #555; /* Medium gray for content */
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Profile Icon */
+.profile-icon {
+    width: 210px;
+    height: 200px;
+    border-radius: 25%;
+    margin: 15px auto;
+    display: block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    margin-top: -215px;
+    margin-left: 350px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Divider Line */
+hr {
+    border: 0;
+    border-top: 1px solid #ddd; /* Light gray line */
+    margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .rider-item {
+        padding: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

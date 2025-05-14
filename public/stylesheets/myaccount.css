@@ -1,0 +1,166 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    color: #ff6347;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* Account Info Form */
+.account-info-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #4b0082;
+    font-size: 16px;
+}
+
+input {
+    border: none;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+}
+
+input:disabled {
+    background-color: #f0f0f0;
+}
+
+.user-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff6347;
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+.user-pic:hover {
+    border-color: #ff4500;
+}
+
+/* Submenu Styles */
+.sub-menu-wrap {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.open-menu {
+    transform: scale(1);
+}
+
+.sub-menu {
+    padding: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.user-info h3 {
+    font-size: 20px;
+    color: #4b0082;
+}
+
+/* Submenu Links */
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+.sub-menu-link img {
+    width: 30px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+.sub-menu-link p {
+    flex-grow: 1;
+    margin: 0;
+}
+
+.sub-menu-link span {
+    font-weight: bold;
+    color: #ff6347;
+}
+
+.sub-menu-link:hover {
+    background-color: #ffefec;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .account-info-form {
+        padding: 15px;
+    }
+
+    .sub-menu-wrap {
+        top: 80px;
+        right: 15px;
+        width: 250px;
+    }
+}

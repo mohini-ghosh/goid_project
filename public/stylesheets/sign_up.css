@@ -1,0 +1,189 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    overflow: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+}
+.jd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/images/login_back.jpg");
+    opacity: 0.7;
+}
+
+.main{
+    width: 350px;
+    height: 620px;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 30px 50px black;
+    
+}
+
+#chk{
+    display: none;
+}
+
+.signup{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+label{
+    color: black;
+    font-size: 35px;
+    justify-content: center;
+    display: flex;
+    margin: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    margin-bottom: 5px;
+}
+
+input{
+    width: 60%;
+    height: 30px;
+    background: white;
+    justify-content: center;
+    display: flex;
+    margin: 10px auto;
+    padding: 5px;
+    border: solid;
+    outline: none;
+    border-radius: 50px;
+}
+
+
+
+button{
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: black;
+    background: rgb(136, 188, 198);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 18px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: .3s ease-in;
+    cursor: pointer;
+    box-shadow: 5px 2px 40px black;
+}
+
+button:hover{
+    background: rgb(32, 32, 174);
+}
+
+.login{
+    height: 460px;
+    background: #b8c2c6;
+    border-radius: 60% / 10%;
+    transform: translateY(-80px);
+    transition: .8s ease-in-out;
+}
+
+.login label{
+    color: #000000;
+    transform: scale(.6);
+}
+
+.login p{
+    text-align: center;
+    padding: 20px;
+}
+
+#chk:checked ~ .login{
+    transform: translateY(-500px);
+}
+
+#chk:checked ~ .login label{
+    transform: scale(1);
+}
+
+#chk:checked ~ .signup label{
+    transform: scale(.6);
+}
+
+.profile {
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400; 
+    font-size: 14px; 
+    margin-top: -10px; 
+    color: black; 
+    margin-left: -130px;
+}
+.govt{
+    margin-top: -10px; 
+    margin-left: 70px;
+    color: black; 
+    font-size: 14px; 
+    font-weight: 400; 
+
+}
+.password-container {
+    position: relative;
+width: 62%;
+margin-left: 64px;
+}
+.password-container input[type="password"] {
+    width: 100%; /* Keep consistent width */
+    padding: 10px;
+    padding-right: 2.5rem; /* Space for eye icon */
+    font-size: 16px;
+    border: 3px solid #000;
+    border-radius: 25px; /* Adjust border-radius as in screenshot */
+    box-sizing: border-box; /* Prevent padding from affecting size */
+    outline: none;
+}
+
+.password-container i {
+position: absolute;
+right: 10px; /* Adjust to align the icon with the placeholder */
+top: 50%;
+transform: translateY(-50%);
+color: #999; /* Adjust color if needed */
+cursor: pointer;
+}
+
+.password-container {
+    position: relative;
+    width: 62%; /* Keep the width consistent */
+    margin-left: 64px;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    width: 100%; /* Keep consistent width */
+    padding: 10px;
+    padding-right: 2.5rem; /* Space for eye icon */
+    font-size: 16px;
+    border: 3px solid #000;
+    border-radius: 25px; /* Adjust border-radius as needed */
+    box-sizing: border-box; /* Prevent padding from affecting size */
+    outline: none;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px; /* Adjust to align the icon with the placeholder */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999; /* Adjust color if needed */
+    cursor: pointer;
+}

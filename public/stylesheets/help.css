@@ -1,0 +1,89 @@
+/* Styles for the container mt-5 class */
+.container.mt-5 {
+    padding: 40px; /* Spacious padding */
+    background-color: #f0f4f8; /* Soft light blue background */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Gentle shadow for depth */
+    margin-top: 50px; /* Margin at the top */
+    border: 1px solid #e0e0e0; /* Light border for subtle separation */
+}
+
+.container.mt-5 h1 {
+    font-size: 2.8rem; /* Large font size for the main heading */
+    color: #3c3c3c; /* Soft dark gray color for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center align the main heading */
+    font-weight: bold; /* Bold for emphasis */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Soft shadow for depth */
+}
+
+.container.mt-5 h2 {
+    font-size: 2rem; /* Size for subheadings */
+    color: #5a5a5a; /* Softer gray for subheadings */
+    margin-top: 30px; /* Space above subheadings */
+    margin-bottom: 15px; /* Space below subheadings */
+    border-bottom: 2px solid #ff6f61; /* Soft coral underline for subheadings */
+    padding-bottom: 5px; /* Padding below the subheadings */
+}
+
+.container.mt-5 p {
+    font-size: 1.1rem; /* Slightly larger font size for paragraphs */
+    color: #4a4a4a; /* Dark gray for text */
+    line-height: 1.6; /* Improved line height for readability */
+    margin-bottom: 20px; /* Space below paragraphs */
+}
+
+.container.mt-5 ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove padding */
+}
+
+.container.mt-5 ul li {
+    margin-bottom: 15px; /* Space between list items */
+    position: relative; /* Positioning for the custom bullet */
+    padding-left: 20px; /* Padding for custom bullet */
+}
+
+.container.mt-5 ul li::before {
+    content: ''; /* Custom bullet */
+    position: absolute; /* Position it absolutely */
+    left: 0; /* Align to the left */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    width: 10px; /* Width of the bullet */
+    height: 10px; /* Height of the bullet */
+    border-radius: 50%; /* Make it circular */
+    background-color: #ff6f61; /* Soft coral color for bullets */
+}
+
+.container.mt-5 ul li a {
+    color: #007bff; /* Soft blue color for links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth transition for color and scale */
+}
+
+.container.mt-5 ul li a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline on hover for better UX */
+    font-weight: bold; /* Bold on hover for emphasis */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container.mt-5 {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    .container.mt-5 h1 {
+        font-size: 2.2rem; /* Adjust main heading size */
+    }
+
+    .container.mt-5 h2 {
+        font-size: 1.5rem; /* Adjust subheading size */
+    }
+
+    .container.mt-5 p {
+        font-size: 1rem; /* Adjust paragraph size */
+    }
+}

@@ -1,0 +1,110 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.ride-options-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+  display: flex; /* Arrange items horizontally */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+  justify-content: center; /* Center items horizontally */
+  gap: 20px; /* Space between items */
+}
+
+.ride-option {
+  background-color: white;
+  border-radius: 10px; /* Slightly rounded corners */
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow */
+  width: 200px; /* Set a fixed width for each item */
+  transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transition for highlighting */
+}
+
+.ride-option img {
+  width: 100%; /* Make the image take up the full width */
+  height: 100px; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image is fully visible */
+  border-radius: 10px 10px 0 0; /* Rounded corners for the image */
+}
+
+.ride-option h3 {
+  margin-top: 0; /* Remove the default margin */
+}
+
+.ride-option.selected {
+  border: 2px solid #2980b9; /* Highlight color */
+  background-color: #f0f8ff; /* Light background for selected option */
+}
+
+#search-ride {
+  background-color: #2980b9;
+  color: white;
+  padding: 15px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#search-ride:hover {
+  background-color: #3498db;
+  transform: scale(1.05);
+}
+
+#search-ride:active {
+  background-color: #1e6a9a;
+  transform: scale(1.02);
+}
+
+@media (max-width: 600px) {
+  .ride-options-container {
+      padding: 20px;
+  }
+  
+  h1 {
+      font-size: 1.5rem;
+  }
+  
+  #search-ride {
+      padding: 12px;
+      font-size: 16px;
+  }
+}
+
+#map {
+  width: 50%;
+  height: 50vh;
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+}
+
+#cancel-ride {
+  width: 20%;
+  height: 50px;
+  font-size: 18px;
+}

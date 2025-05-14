@@ -1,0 +1,39 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light grey background */
+    color: #333; /* Dark text color */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4a90e2; /* Blue color for the main header */
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #d35400; /* Orange color for subheadings */
+    margin-top: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #e7f3fe; /* Light blue background for paragraphs */
+    border-left: 5px solid #4a90e2; /* Blue left border */
+}
+
+#map {
+    height: 400px; /* Set a height for the map */
+    width: 100%; /* Full width */
+    border: 2px solid #4a90e2; /* Blue border around the map */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    margin-top: 20px;
+}
+
+input[type="hidden"] {
+    display: none; /* Hide hidden fields */
+}

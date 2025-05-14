@@ -1,0 +1,57 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Admin Dashboard Section */
+.admin-dashboard {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Button Container */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .btn-container {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 90%; /* Full width on small screens */
+        margin: 10px 0; /* Margin for vertical spacing */
+    }
+}

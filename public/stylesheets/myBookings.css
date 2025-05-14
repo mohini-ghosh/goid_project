@@ -1,0 +1,92 @@
+/* Global Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+h1 {
+    color: #3498db; /* Blue heading color */
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Bookings Container Styles */
+
+.bookings-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for the container */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Table Styles */
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Remove space between borders */
+}
+
+thead {
+    background-color: #3498db; /* Header background color */
+    color: white; /* White text color */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Light gray border for table rows */
+}
+
+
+
+/* Button Styles */
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cancel-btn {
+    background-color: #e74c3c; /* Red for cancel button */
+    color: white; /* White text */
+}
+
+.confirmation-btn {
+    background-color: #2ecc71; /* Green for confirmation button */
+    color: white; /* White text */
+}
+
+/* No Bookings Message Styles */
+
+p {
+    text-align: center;
+    color: #666; /* Dark gray text color */
+    font-size: 16px; /* Font size for message */
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+    .bookings-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller heading on mobile */
+    }
+
+    button {
+        font-size: 12px; /* Smaller button text on mobile */
+    }
+}

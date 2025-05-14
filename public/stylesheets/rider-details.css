@@ -1,0 +1,126 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #4A90E2;
+}
+
+/* Driver container styles */
+#rider-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Driver card styles */
+.rider-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 650px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.rider-card:hover {
+    transform: scale(1.05);
+}
+
+/* Aadhar card image styles */
+.Id-card-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* Driver info styles */
+.rider-info {
+    margin: 10px 0;
+}
+
+.rider-info h3 {
+    color: #4A90E2;
+    margin-bottom: 5px;
+}
+
+/* Button styles */
+.approve-btn,
+.reject-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+}
+
+.reject-btn {
+    background-color: #f44336; /* Red */
+}
+
+.approve-btn:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+.reject-btn:hover {
+    background-color: #e53935; /* Darker red */
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 60px;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #f1c40f;
+    text-decoration: none;
+    cursor: pointer;
+}
