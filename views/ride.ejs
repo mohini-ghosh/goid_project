@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIDE</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3n8SgW9peGPFRl5Qe7fYvGdeuk8xzrI&loading=async&libraries=places&callback=initMap" ></script>
+
+    <link rel="stylesheet" href="/stylesheets/ride.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    </head>
+<body>
+    <%- include('./partials/header') %>
+
+    <div class="loc-container">
+        <div class="ride-options">
+            <h1 class="h1">Select Ride Type</h1>
+            <div class="ride-type-btns">
+                <button id="hometooffice">Home To Office</button>
+                <button id="officetohome">Office to Home</button>
+                <button id="both">Both</button>
+            </div>
+            <div class="select-btns">
+                <button id="schedule">Schedule Later</button>
+                <button id="book"><a href="/rideOpt">Book Now</a></button>
+                <button id="my-bookings"><a href="/rideOpt/my-bookings">My Bookings</a></button> <!-- New button -->
+                <button id="my-schedules"><a href="/rideOpt/my-scheduledRides">Scheduled Rides</a></button>
+            </div>
+        </div>
+        <div id="map" class="map"></div>
+    </div>
+
+   <!-- Add this modal HTML below the existing content in ride.ejs -->
+<div id="scheduleModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Schedule Your Ride for Tomorrow</h2>
+        <form id="scheduleForm">
+            <div class="form-group">
+
+            <label for="carType">Select Car Type:</label>
+            <select name="carType" id="carType" required>
+                <option value="" disabled selected>Select your car type</option>
+                <option value="Maruti Suzuki Swift Dzire">Maruti Suzuki Swift Dzire</option>
+                <option value="Maruti Suzuki Alto">Maruti Suzuki Alto</option>
+                <option value="Hyundai Xcent">Hyundai Xcent</option>
+                <option value="Hyundai Grand i10">Hyundai Grand i10</option>
+                <option value="Tata Zest">Tata Zest</option>
+                <option value="Tata Indigo">Tata Indigo</option>
+                <option value="Shuttle">Shuttle</option>
+                <option value="Motorcycle">Motorcycle</option>
+                <option value="Any">Any</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="scheduleTime">Schedule Time:</label>
+            <input type="time" id="scheduleTime" name="scheduleTime" required>
+        </div>
+            <button type="submit">Confirm Schedule</button>
+        </form>
+    </div>
+</div>
+    <%- include('./partials/footer') %>
+    <script src="/javascripts/ride.js"></script>
+</body>
+</html>

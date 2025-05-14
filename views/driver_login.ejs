@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIVER_SIGN UP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    <link rel="stylesheet" href="/stylesheets/driver_login.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="/driver/login" method="POST" id="login-form">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <div class="infield">
+                    <input type="email" placeholder="Email" name="email" id="driver-email" title="Enter your valid email id"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" name="password" id="driver-pass" title="Format: Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character"/>
+                        <i class="fas fa-eye" id="toggle-password-log" style="cursor: pointer;"></i>
+                        <label></label>
+                    </div>
+                </div>
+                <button type="submit">Sign In</button>
+            </form>   
+        </div>
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay">
+                
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Don't Have An Account?</p>
+                    <button style="border-radius: 20px;border: 1px solid white;"><a href="/driver_sign_up">Sign Up</a></button>
+                </div>
+    </div>
+
+    <!-- Separate JS file -->
+    <script src="/javascripts/driver_login.js"></script>
+</body>
+
+</html>

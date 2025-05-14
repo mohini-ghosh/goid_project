@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN & SIGN UP</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU848l8XG0ophM800MB7EA0WDnjq6sm4w&libraries=places&callback=initMap" ></script> -->
+<link rel="stylesheet" href="/stylesheets/sign_up.css">
+
+<link rel="stylesheet" href="/stylesheets/header.css">
+<link rel="stylesheet" href="/stylesheets/footer.css">
+   
+
+</head>
+
+<body>
+
+<!-- Include Header -->
+<%- include('./partials/header') %>
+
+
+<div class="jd">
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+            <form action="/rider/register" id="signup-form" method="post" enctype="multipart/form-data">
+                <label for="chk" aria-hidden="true">Sign Up</label>
+                <input type="text" name="employee_name" id="employee_name" placeholder="Employee Name" required title="Enter your full name">
+                <span class="error" id="txt-error"></span>
+                
+                <input type="text" name="employee_id" id="employee_id" placeholder="Employee Id" required title="Format:E_ followed by 4 digits">
+                <span class="error" id="employee_id-error"></span>
+                
+                <div class="infield">
+                    <input type="file" name="IdCard" id="IDCard" accept="image/*" required title="Upload your ID Card"/>
+                    <h4 class="govt">(Employee ID Card)</h4>
+                </div>
+                <input type="text" name="employee_mail_id" id="employee_mail_id"  placeholder="Mail Id" required title="Enter your valid email id">
+                <span class="error" id="employee_mail_id-error"></span>
+                
+                <button type="button" id="verify-btn" style="display: none;">Verify</button>
+                
+                
+
+                <div id="otp-modal" style="display: none;">
+                    <input type="text" id="otp-modal-input" placeholder="Enter OTP">
+                    <button id="otp-modal-btn">Submit</button>
+                </div>
+
+                <input type="text" name="employee_contact" id="employee_contact" placeholder="Contact No" required title="Enter your contact number">
+                <span class="error" id="employee_contact-error"></span>
+                
+                
+                <input type="text" name="employee_address" id="employee_address"  placeholder="Employee Address" required>
+                <span class="error" id="employee_address-error"></span>
+
+                
+
+                <!-- <div id="location-details"></div> -->
+
+                <button id="get-location-btn" style="display: none;">Get Location</button>
+          <div id="map-container" style="display: none;"></div>
+
+          <input type="hidden" id="latitude" name="latitude">
+          <input type="hidden" id="longitude" name="longitude">
+
+                 <input type="file" name="profile_icon" id="profile_pic"  placeholder="Profile Icon" required title="Upload your photo">
+                 <span class="error" id="profile_icon-error"></span>
+                 <h4 class="profile" >(Profile Icon)</h4>
+
+                <!-- <input type="password" name="password" id="password"  placeholder="Password" required>
+                <span class="error" id="pswd-error"></span>
+                
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                <span class="error" id="confirm_pswd-error"></span>
+                 -->
+
+                 <div class="password-container">
+    <input type="password" name="password" id="password" placeholder="Password" required title="Format:Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.">
+    <span class="error" id="pswd-error"></span>
+    <i class="fas fa-eye" id="toggle-password"></i>
+</div>
+
+<div class="password-container">
+    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required title="Re-enter the above password">
+    <span class="error" id="confirm_pswd-error"></span>
+    <i class="fas fa-eye" id="toggle-confirm-password"></i>
+</div>
+
+                
+                <button type="submit" id="signup-btn" disabled>Sign Up</button>
+            </form>
+        </div>
+        <div class="login" id="login-form">
+            <form action="/rider/login">
+                <label for="chk" aria-hidden="true">Login</label>
+
+                <input type="text" name="employee_id" id="employee-id" placeholder="Employee Id" required="" title="Format:E_ followed by 4 digits">
+                <span class="error" id="employee_id-error"></span>
+
+                
+                <div class="password-container">
+                    <input type="password" name="password" id="password-log" placeholder="Password" required title="Format:Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.">
+                    <span class="error" id="pswd-error"></span>
+                    <i class="fas fa-eye" id="toggle-password-log"></i>
+                </div>
+                <button>Login</button>
+                <p>Don't Have Account <a href="/sign_up">Sign Up</a>.</p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Include Footer -->
+<%- include('./partials/footer') %>
+<script src="/javascripts/sign_up.js"></script>
+
+</body>
+
+</html>

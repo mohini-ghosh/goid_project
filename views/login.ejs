@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN &SIGN UP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+    
+        <link rel="stylesheet" href="/stylesheets/header.css">
+        <link rel="stylesheet" href="/stylesheets/footer.css">
+    </head>
+<body>
+    
+    <%- include('./partials/header') %>
+
+    <div class="jd">
+
+        <div class="main">
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+            <div class="login" id="login-form">
+                <form action="/rider/login">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="text" name="employee_id" placeholder="Employee Id" id="employee-id" required title="Format: E_ followed by 4 digits">
+                    <span class="error" id="txt-error"></span>
+
+    
+                    <div class="password-container">
+                        <input type="password" name="password" id="password-log" placeholder="Password" required title="Format:Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.">
+                        <span class="error" id="pswd-error"></span>
+                        <i class="fas fa-eye" id="toggle-password-log"></i>
+                    </div>
+                    
+                    <button>Login</button>
+                    <p>Don't Have Account <a href="/sign_up">Sign Up</a>.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="/javascripts/login.js"></script>
+<body>
+    
+</body>

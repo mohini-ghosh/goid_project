@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Ride Requests</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333; /* Dark text color */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4a90e2; /* Blue color for the header */
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px; /* Keep original padding */
+    text-align: left;
+    font-size: 14px; /* Slightly smaller font size */
+}
+
+th {
+    background-color: #4a90e2; /* Blue header */
+    color: white; /* White text for header */
+}
+
+td {
+    word-wrap: break-word; /* Allow long words to break and wrap to the next line */
+    max-width: 250px; /* Set a max width to prevent excessive stretching */
+}
+
+tr:nth-child(even) {
+    background-color: #e6f7ff; /* Light blue for even rows */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+}
+
+tr:hover {
+    background-color: #d1e7fd; /* Light blue on hover */
+}
+
+.button-container {
+    display: flex; /* Use flexbox to align items in a row */
+    gap: 10px; /* Add some space between the buttons */
+}
+
+button {
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Keep original padding */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+span {
+    color: #ffcc00; /* Yellow for accepted status */
+    font-weight: bold;
+}
+</style></head>
+<body>
+    <h1>Schedule Ride Requests</h1>
+    
+    <% if (scheduledRides.length === 0) { %>
+        <p>No schedule requests found.</p> <!-- Message when no scheduled rides are available -->
+    <% } else { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rider Name</th>
+                    <th>Car Type</th>
+                    <th>Pickup Location</th>
+                    <th>Destination</th>
+                    <th>Scheduled Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% scheduledRides.forEach(ride => { %>
+                    <tr id="ride-<%= ride._id %>"> <!-- Assign a unique ID to each row -->
+                        <td><%= ride.riderId.eName %></td>
+                        <td><%= ride.carType %></td>
+                        <td><%= ride.riderId.eAddress %></td>
+                        <td><%= ride.destinationAddress %> <!-- Display the destination --></td>
+                        <td><% 
+                            const scheduledDate = new Date(ride.scheduleTime);
+                            scheduledDate.setDate(scheduledDate.getDate() + 1);
+                        %>
+                        <%= scheduledDate.toLocaleString() %></td>
+                        <td>
+                            <div class="button-container">
+                                <% if (ride.status === 'accepted') { %>
+                                    <span style="color:green; font-weight: bold;">Accepted</span>
+                                
+                                <% } else if (ride.status === 'cancelled') { %>
+                                    <span style="color: red; font-weight: bold;">Cancelled</span>
+                                <% } else { %>
+                                    <form action="/driver/confirm-scheduled-ride/<%= ride._id %>" method="POST">
+                                        <button type="submit">Ok</button>
+                                    </form>
+                                    <form action="/driver/cancel-scheduled-ride/<%= ride._id %>" method="POST">
+                                        <button type="submit">Cancel</button>
+                                    </form>
+                                <% } %>
+                            </div>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('.button-container form');
+            forms.forEach(form => {
+                form.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+                    const action = form.action;
+                    const method = form.method;
+    
+                    try {
+                        const response = await fetch(action, { method });
+                        const result = await response.json();
+    
+                        if (response.ok) {
+                            alert(result.message);
+                            const row = form.closest('tr'); // Get the closest row if (row) {
+                            row.remove(); // Remove the row from the table
+                        } else {
+                            console.error('Error:', result.message);
+                            alert('An error occurred: ' + result.message);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An unexpected error occurred.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

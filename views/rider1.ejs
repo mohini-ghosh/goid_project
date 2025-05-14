@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider Segment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Align buttons vertically */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* The background image container */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/mssd.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0; /* Ensure it stays behind the content */
+        }
+
+        /* Adding an overlay using a dedicated div */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            z-index: 1; /* Ensure the overlay is behind the content */
+        }
+
+        .content {
+            position: relative;
+            z-index: 2; /* Ensures content is on top of both background and overlay */
+            text-align: center;
+        }
+
+        .custom-size-button {
+            width: 250px; /* Custom width */
+            height: 70px; /* Custom height */
+            background-color: rgb(137, 197, 203);
+            color: white;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            margin: 10px 0; /* Adds spacing between buttons */
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            text-decoration: underline;
+            margin-bottom: 20px; /* Adds space between heading and buttons */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- Background image -->
+    <div class="overlay"></div> <!-- Dark overlay -->
+
+    <div class="content"> <!-- Content with buttons and heading -->
+        <h1>Welcome to Rider Segment!!!</h1>
+        
+        <button class="button custom-size-button" id="Registered-Rider-btn">Registered Riders</button>
+
+        
+        <button class="button custom-size-button" id="Pending-Riders-Requests-btn">Pending Riders</button>
+
+        <a href="/Edit-Riders-Details">
+            <button class="button custom-size-button" id="Edit-Riders-Details-btn">Edit Riders' Details</button>
+        </a>
+    </div>
+    <script>
+        const RegisteredRiderbtn = document.getElementById('Registered-Rider-btn');
+const PendingRidersRequestsbtn = document.getElementById('Pending-Riders-Requests-btn');
+const EditRidersDetailsbtn = document.getElementById('Edit-Riders-Details-btn');
+
+RegisteredRiderbtn.addEventListener('click', () => {
+    // Redirect to ride details page
+    window.location.href = '/registeredRider';
+});
+
+PendingRidersRequestsbtn.addEventListener('click', () => {
+    // Redirect to rider details page
+    window.location.href = '/rider-details';
+});
+
+EditRidersDetailsbtn.addEventListener('click', () => {
+    // Redirect to driver details page
+    window.location.href = '/Edit-Riders-Details';
+});
+    </script>
+</body>
+</html>

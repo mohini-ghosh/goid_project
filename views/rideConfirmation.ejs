@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Confirmation</title>
+    <link rel="stylesheet" href="/stylesheets/rideConfirmation.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3n8SgW9peGPFRl5Qe7fYvGdeuk8xzrI&loading=async&libraries=places&callback=initMap" ></script>
+    <style>
+      #map {
+            height: 400px; /* Set a height for the map */
+            width: 100%; /* Full width */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ride Confirmation Details</h1>
+    <h2>Rider Details</h2>
+    <p>Name: <%= rider.Name %></p>
+    <p>Contact: <%= rider.contact %></p>
+    <p>Email: <%= rider.eEmail %></p>
+
+    <h2>Driver Details</h2>
+    <p>Name: <%= driver ? driver .name : 'N/A' %></p>
+    <p>Contact: <%= driver ? driver.contact : 'N/A' %></p>
+    <p>Email: <%= driver ? driver.dEmail : 'N/A' %></p>
+
+    <h2>Confirmation OTP</h2>
+    <p><%= otp %></p>
+
+
+    <h2>Map</h2>
+    <div id="map"></div> <!-- Map container -->
+
+    <!-- Hidden fields to store coordinates -->
+    <input type="hidden" id="riderEmail" value="<%= riderEmail %>">
+
+    <input type="hidden" id="pickupLat" value="<%= rideRequest.pickupLocation.coordinates[1] %>">
+    <input type="hidden" id="pickupLng" value="<%= rideRequest.pickupLocation.coordinates[0] %>">
+    <input type="hidden" id="driverLat" value="<%= driver ? driver.latitude : 0 %>">
+    <input type="hidden" id="driverLng" value="<%= driver ? driver.longitude : 0 %>">
+    <input type="hidden" id="rideRequestId" value="<%= rideRequest._id %>">
+
+ <script src="/javascripts/rideConfirmation.js"></script>
+</body>
+</html>

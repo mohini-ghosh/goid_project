@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Riders</title>
+    <link rel="stylesheet" href="/stylesheets/registeredRider.css">
+</head>
+<body>
+    <header>
+        <h1>Registered Riders</h1>
+    </header>
+    <main>
+        <div class="rider-list">
+            <% if (riders.length > 0) { %>
+                <% riders.forEach(rider => { %>
+                    <div class="rider-item">
+                        <h2><%= rider.eName %></h2>
+                        <p><strong>ID:</strong> <%= rider.eId %></p>
+                        <p><strong>Email:</strong> <%= rider.eEmail %></p>
+                        <p><strong>Contact:</strong> <%= rider.contact %></p>
+                        <p><strong>Address:</strong> <%= rider.eAddress %></p>
+                        <% if (rider.profileIcon) { %>
+                            <img src="<%= rider.profileIcon %>" alt="Profile Icon" class="profile-icon" />
+                        <% } %>
+                        <hr>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No registered riders found.</p>
+            <% } %>
+        </div>
+        <a href="/admin_home" class="btn">Back to Admin Home</a>
+    </main>
+</body>
+</html>

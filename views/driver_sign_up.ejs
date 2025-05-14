@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIVER_SIGN UP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/driver_sign_up.css">
+    <style>
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 2rem;
+}
+
+.password-container .fas.fa-eye {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1rem;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="/driver/login" method="POST" id="driver-login-form">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <div class="infield">
+                    <input type="email" placeholder="Email" name="email" id="driver-email" title="Enter your valid email id"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" name="password" id="driver-pass" title="Format:Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character."/>
+                        <i class="fas fa-eye" id="toggle-password-log" style="cursor: pointer;"></i>
+                        <label></label>
+                    </div>
+
+                </div>
+                <a href="#" class="forgot">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+            <form action="/driver/register" method="POST" id="register-form" enctype="multipart/form-data">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <div class="infield">
+                    <input type="text" placeholder="Full Name" name="fullName" id="driver_name" title="Enter your full name"/>
+                    <label></label>
+                </div>
+
+                <div class="infield">
+                    <input type="email" placeholder="Email Id" name="email" id="driver_mail_id" title="Enter your valid email id"/>
+                    <label></label>
+                </div>
+                <button type="button" id="verify-btn" disabled>Verify</button>
+                <div id="otp-modal" style="display: none;">
+                    <input type="text" id="otp-modal-input" placeholder="Enter OTP">
+                    <button id="otp-modal-btn">Submit</button>
+                </div>
+
+                <div class="infield">
+                    <input type="tel" placeholder="Phone Number" name="phoneNumber" id="driver_contact" title="Enter your contact number"/>
+                    <label></label>
+                </div>
+                
+                
+                <div class="infield">
+                    <input type="text" placeholder="Driving License Number" name="licenseNumber" id="license_no" title="Enter your valid Driving License number.Format: 2 letters followed by 2 digits,then 4 digits and lastly 7 digits."/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="file" name="aadharCard" id="aadhar_card" accept="image/*" required title="Upload your driving license"/>
+                    <h4 class="profile govt">(Driving License)</h4>
+                </div>
+                <div class="infield">
+                    <input type="text" placeholder="Address" name="address" id="driver_address" />
+                    <label></label>
+                </div>
+
+                <button id="get-location-btn" style="display: none;">Get Location</button>
+                <div id="map-container" style="display: none;"></div>
+
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+
+
+                <div class="infield">
+                    <input type="file" placeholder="Profile Picture" name="profile_pic(Optional)" id="profile_pic"
+                        accept="image/*" title="Upload your photo"/>
+                    <h4 class="icon_">(Profile Icon)</h4>
+                </div>
+
+                <div class="infield">
+                    <input type="text" placeholder="Vehicle Reg No" name="vehicleno" id="vehicle_no" title="Enter your valid vehicle registration number.Format:2 letters followed by 2 digits then 1 or 2 letters followed by 4 digits"/>
+                    <label></label>
+                </div>
+
+                <div class="infield">
+                    <label for="carType"></label>
+                    <select name="carType" id="carType" required>
+                        <option value="" disabled selected>Select your car type</option>
+                        <option value="Maruti Suzuki Swift Dzire">Maruti Suzuki Swift Dzire</option>
+                        <option value="Maruti Suzuki Alto">Maruti Suzuki Alto</option>
+                        <option value="Hyundai Xcent">Hyundai Xcent</option>
+                        <option value="Hyundai Grand i10">Hyundai Grand i10</option>
+                        <option value="Tata Zest">Tata Zest</option>
+                        <option value="Tata Indigo">Tata Indigo</option>
+                        <option value="Shuttle">Shuttle</option>
+                        <option value="Motorcycle">Motorcycle</option>
+                    </select>
+                    <span class="dropdown-arrow"></span>
+                </div>
+
+                
+
+                <div class="infield">
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" name="password" id="password" title="Format: Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character"/>
+                        <i class="fas fa-eye" id="toggle-password" style="cursor: pointer;"></i>
+                        <label></label>
+                    </div>
+
+                </div>
+                <div class="infield">
+                    <div class="password-container">
+                        <input type="password" placeholder="Confirm Password" name="password" id="confirm_password" title="Re-enter the above password"/>
+                        <i class="fas fa-eye" id="toggle-confirm-password" style="cursor: pointer;"></i>
+                    </div>
+                    <label></label>
+
+                </div>
+               
+
+            <button type="submit" id="signUpBtn" disabled>Sign Up</button>
+            </form>
+        </div>
+
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us, please login with your personal info</p>
+                    <button id="signUpBtn">Sign Up</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button id="signInBtn">Sign In</button>
+                </div>
+            </div>
+            <button id="overlayBtn"></button>
+        </div>
+    </div>
+
+    <!-- Separate JS file -->
+    <script src="/javascripts/driver_sign_up.js"></script>
+
+</body>
+
+</html>

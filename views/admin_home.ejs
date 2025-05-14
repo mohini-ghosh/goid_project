@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="/stylesheets/admin_home.css">
+    <link rel="stylesheet" href="/stylesheets/admin-header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+
+
+</head>
+<body>
+    <header>
+        <%- include('./partials/admin_header') %>
+    </header>
+    <main>
+        <section class="admin-dashboard">
+            <h1>Admin Dashboard</h1>
+            <div class="btn-container">
+                <button class="btn" id="ride-details-btn">Ride Details</button>
+                <button class="btn" id="rider-details-btn">Rider Details</button>
+                <button class="btn" id="driver-details-btn">Driver Details</button>
+            </div>
+        </section>
+    </main>
+ 
+    <script src="/javascripts/admin_home.js"></script>
+</body>
+</html>

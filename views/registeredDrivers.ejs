@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Drivers</title>
+    <link rel="stylesheet" href="/stylesheets/registeredDrivers.css"> <!-- Optional CSS -->
+    
+</head>
+<body>
+    <h1>Registered Drivers</h1>
+    <div id="driver-container">
+        <% if (drivers.length > 0) { %>
+            <% drivers.forEach(driver => { %>
+                <div class="driver-card">
+                    <h3><%= driver.dName %></h3>
+                    <p>Email: <%= driver.dEmail %></p>
+                    <p>Contact: <%= driver.dcontact %></p>
+                    <p>License: <%= driver.license %></p>
+                    <p>Vehicle No: <%= driver.vehicleNo%></p>
+                    <p>Car Type: <%= driver.carType%></p>
+                    <p>Status: <%= driver.status %></p>
+                    <img src="<%= driver.picture %>" alt="Profile pic" class="aadhar-card-pic" />
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No registered drivers found.</p>
+        <% } %>
+    </div>
+</body>
+</html>

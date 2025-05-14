@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/admin_account.css">
+    <link rel="stylesheet" href="/stylesheets/admin-header.css">
+    <title>Admin Profile</title>
+</head>
+<body>
+    <header>
+        <!-- Include Header -->
+        <%- include('./partials/admin_header') %>
+    </header>
+    <!-- Welcome message -->
+    <div class="admin-header">
+        <h2>Welcome Admin, <%= admin.adminName %>!</h2>
+    </div>
+
+    <!-- Form to display admin information -->
+    <div class="admin-info-form">
+        <form>
+            <label for="admin-name">Admin Name:</label>
+            <input type="text" id="admin-name" value="<%= admin.adminName %>" disabled>
+            
+            <label for="admin-email">Email ID:</label>
+            <input type="email" id="admin-email" value="<%= admin.adminMail %>" disabled>
+
+            <!-- Add more fields as necessary for admin-specific data -->
+        </form>
+    </div>
+</body>
+</html>

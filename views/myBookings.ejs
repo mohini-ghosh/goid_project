@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="/stylesheets/myBookings.css"> <!-- Add your CSS file -->
+    <link rel="stylesheet" href="/stylesheets/header.css"> <!-- Add your CSS file -->
+    <link rel="stylesheet" href="/stylesheets/footer.css"> <!-- Add your CSS file -->
+   <style> .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    }
+    
+    .modal-content {
+        background-color: #ffffff;
+        margin: 10% auto;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+        animation: fadeIn 0.3s ease-in-out; /* Modal fade-in animation */
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    
+    .close {
+        color: #888;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+    
+    .close:hover {
+        color: #333;
+    }
+    
+    #starRating {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    
+    .star {
+        font-size: 2.5rem;
+        color: #ddd;
+        cursor: pointer;
+        transition: color 0.3s, transform 0.2s;
+    }
+    
+    .star:hover,
+    .star.selected {
+        color: #ffc107; /* Golden yellow for selected stars */
+        transform: scale(1.1);
+    }
+    
+    .star:hover ~ .star {
+        color: #ddd; /* Reset stars after the hovered one */
+    }
+    
+    button#submitRating {
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    
+    button#submitRating:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+    }
+</style>    
+
+</head>
+<body>
+    <%- include('./partials/header') %>
+
+    <h1>My Bookings</h1>
+    <div class="bookings-container">
+        <% if (bookings.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Pickup Location</th>
+                        <th>Driver Name</th>
+                        <th>Driver Car Type</th> <!-- New column for Driver Car Type -->
+
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% bookings.forEach(booking => { %>
+                        <tr>
+                            <td><%= booking._id %></td>
+                            <td><%= booking.pickupAddress %></td>
+                            <td><%= booking.driverId ? booking.driverId.dName : 'N/A' %></td>
+                            <td><%= booking.driverId ? booking.driverId.carType : 'N/A' %></td> <!-- Display Driver Car Type -->
+
+                            <td><%= booking.status %></td>
+                            <td>
+                                <% if (booking.status === 'accepted') { %>
+                                    <button class="cancel-btn" data-id="<%= booking._id %>">Cancel</button>
+                                    <button class="confirmation-btn" data-id="<%= booking._id %>">Show Confirmation</button>
+                                <% } else if (booking.status === 'completed') { %>
+                                    <% if (!booking.ratingGiven) { %>
+                                        <button class="rate-btn" data-id="<%= booking._id %>">Rate</button>
+                                    <% } else { %>
+                                        <span>Thank you!</span>
+                                    <% } %>
+                                <% } else if(booking.status!=='pending'){ %>
+                                    <span>Thank you!</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No bookings found.</p>
+        <% } %>
+    </div>
+
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Rate Your Ride</h2>
+            <div id="starRating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <button id="submitRating">Submit Rating</button>
+        </div>
+    </div>
+
+    <script src="/javascripts/myBookings.js"></script> <!-- Add your JS file -->
+</body>
+</html>

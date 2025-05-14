@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ride Details</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3n8SgW9peGPFRl5Qe7fYvGdeuk8xzrI&loading=async&libraries=places&callback=initMap" ></script>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="/stylesheets/driverRideDetails.css">
+</head>
+<body>
+    <h2>Rider Information</h2>
+    <p>Name: <%= rideRequest.riderId.eName %></p>
+    <p>Email: <%= rideRequest.riderId.eEmail %></p>
+    <p>Contact: <%= rideRequest.riderId.contact %></p>
+    <p>Address: <%= rideRequest.riderId.eAddress %></p>
+
+    <h2>Ride Request Information</h2>
+    <p>Pickup Address: <%= rideRequest.pickupAddress %></p>
+    <p id="destination-address">Destination: Loading...</p> <!-- Placeholder for destination address -->
+    <p>Car Type: <%= rideRequest.carType %></p>
+    <p>Status: <%= rideRequest.status %></p>
+
+    <!-- Hidden inputs to store latitude and longitude -->
+    <input type="hidden" id="pickupLat" value="<%= rideRequest.pickupLocation.coordinates[1] %>">
+    <input type="hidden" id="pickupLng" value="<%= rideRequest.pickupLocation.coordinates[0] %>">
+    <input type="hidden" id="driverLat" value="<%= driver.latitude %>">
+    <input type="hidden" id="driverLng" value="<%= driver.longitude %>">
+    <input type="hidden" id="destinationLat" value="<%= rideRequest.destination.coordinates[1] %>"> <!-- Added for destination -->
+    <input type="hidden" id="destinationLng" value="<%= rideRequest.destination.coordinates[0] %>"> <!-- Added for destination -->
+    
+    <div id="ride-details" data-ride-request-id="<%= rideRequest._id %>"></div>
+
+    <div id="map"></div>
+
+    <!-- <div id="otp-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-otp-modal">&times;</span>
+            <h2>Enter OTP</h2>
+            <input type="text" id="otp-input" placeholder="Enter OTP" required>
+            <button id="verify-otp">Verify OTP</button>
+        </div>
+    </div> -->
+    <!-- driverRideDetails.ejs -->
+<div id="otp-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-otp-modal">&times;</span>
+        <h2>Enter OTP</h2>
+        <input type="text" id="otp-input" placeholder="Enter OTP" required>
+        <button id="verify-otp">Verify OTP</button>
+        <div id="message"></div>
+    </div>
+</div>
+<button id="complete-ride-btn" style="display: none;">Complete Ride</button> <!-- New button -->
+
+
+    <script src="/javascripts/driverRideDetails.js"></script> <!-- Include the external JavaScript file -->
+    
+</body>
+</html>

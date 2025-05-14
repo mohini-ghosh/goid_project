@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Account</title>
+    <link rel="stylesheet" href="/stylesheets/driver_account.css">
+</head>
+
+<body>
+    <div class="account-container">
+        <div class="profile-section">
+            <img src="<%= driver.picture ? driver.picture : '/images/1.jpg'%>" alt="Driver Profile Picture" class="profile-picture">
+            <h2><%= driver.dName %></h2>
+        </div>
+
+        <div class="details-section">
+            <h3>Account Details</h3>
+            <div class="detail-item">
+                <label for="dEmail">Email:</label>
+                <p id="dEmail"><%= driver.dEmail %></p>
+            </div>
+            <div class="detail-item">
+                <label for="license">Driver's License:</label>
+                <p id="license"><%= driver.license %></p>
+            </div>
+            <div class="detail-item">
+                <label for="dcontact">Contact Number:</label>
+                <p id="dcontact"><%= driver.dcontact %></p>
+            </div>
+            <div class="detail-item">
+                <label for="dAddress">Address:</label>
+                <p id="dAddress"><%= driver.dAddress %></p>
+            </div>
+            <div class="detail-item">
+                <label for="averageRating">Average Rating:</label>
+                <p id="averageRating"><%= driver.averageRating !== null ? driver.averageRating.toFixed(1) : 'No ratings yet' %></p>
+            </div>
+        </div>
+
+        <div class="account-actions">
+            <a href="/driver_logout" class="logout-btn">Logout</a>
+        </div>
+    </div>
+</body>
+
+</html>

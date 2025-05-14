@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" 
+    />
+    
+<link rel="stylesheet" href="/stylesheets/drive.css">
+
+<link rel="stylesheet" href="/stylesheets/header.css">
+
+<link rel="stylesheet" href="/stylesheets/footer.css">
+
+</head>
+
+<body>
+    
+<!-- Include Header -->
+<%- include('./partials/header') %>
+
+    <div class="main">
+        <section class="one">
+            <div class="textsection">
+                <p id="p1">Drive When You Want</p>
+                <p id="p1">Safe Ride</p>
+                <p id="p1">Secure Ride</p>
+                <p id="p2">Have a Comfortable Ride</p>
+            </div>
+            <div class="buttons">
+
+            <% if(typeof driverLoggedIn !== 'undefined'&& driverLoggedIn===true){%>
+                <div class="btn-group">
+                    <div class="btn">
+                        <a href="/driver_account" id="a1">My Account</a>
+                    </div>
+                    <div class="btn">
+                        <a href="/driver_logout">Logout</a>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <div class="btn">
+                        <a href="/driver/show-ride-requests" id="a2">Show Ride Requests</a>
+                    </div>
+                    <div class="btn">
+                        <a href="/driver/show-schedule-requests" id="a2">Show Schedule Requests</a>
+                    </div>
+                </div>
+            <% } else {%>
+                <div class="btn-group">
+                    <div class="btn">
+                        <a href="/driver_sign_up" id="a1">Get Started</a>
+                    </div>
+                    <div class="btn">
+                        <a href="/driver_login">Already have an account? Sign in</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+            
+        </section>
+        <section class="two">
+            <div class="text1">
+                <h2>Generic Driving question</h2>
+            </div>
+            <div class="image">
+                <img id="i1" src="/images/driving.jpg" alt="">
+            </div>
+            <div class="feat">
+                <div class="f1">
+                    <i class="fa-solid fa-calendar"></i>
+                    <p id="p3">Set The Time</p>
+                    <p id="p4">Manage timing</p>
+                </div>
+                <div class="f2">
+                    <i class="fa-solid fa-money-bill"></i>
+                    <p id="p3">Set The Money</p>
+                    <p id="p4">Manage Money</p>
+                </div>
+                <div class="f3">
+                    <i class="fa-solid fa-phone"></i>
+                    <p id="p3">Get Help Everytime</p>
+                    <p id="p4">24*7 helpline</p>
+                </div>
+            </div>
+            <div class="text2">
+                <a href="">How Driving Works</a>
+            </div>
+        </section>
+        <section class="three">
+            <div class="title">
+                <h2 id="h1" style="font-weight: 700;">Regulations for Sign Up</h2>
+            </div>
+            <div class="required">
+                <div class="r1">
+                    <i class="fa-solid fa-file-circle-question"></i>
+                    <h3 id="R1">Requirements</h3>
+                    <ul>
+                        <li>Age:18 years</li>
+                        <li>Pass some test</li>
+                    </ul>
+                </div>
+                <div class="r2">
+                    <i class="fa-solid fa-file"></i>
+                    <h3 id="R1">Documents</h3>
+                    <ul>
+                        <li>Driver License</li>
+                        <li>Proof of residency in the city,state,country</li>
+                        <li>Car documents</li>
+                    </ul>
+                </div>
+                <div class="r3">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h3 id="R1">Signup process</h3>
+                    <ul>
+                        <li>Visit some random office</li>
+                        <li>Submit photo and documents</li>
+                        <li>Provide info for checking</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="four">
+            <div class="title">
+                <p id="h1">Safety is Our First Priority</p>
+                <p id="h2">Your safety is our top priority; all our vehicles undergo regular maintenance, and our drivers are trained to follow strict safety protocols.We ensure a secure and comfortable ride by using GPS tracking, background-checked drivers, and 24/7 customer support for your peace of mind</p>
+                <a href="" class="tag">Learn more</a>
+            </div>
+            <div class="ads">
+                <div class="ad1">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h3>Your safety is our priority</h3>
+                </div>
+                <div class="ad2">
+                    <i class="fa-solid fa-lock"></i>
+                    <h3>Protection on every trip</h3>
+                    <h4>GoID Provides highest safety</h4>
+                    <a href="" class="tag">Learn more</a>
+                </div>
+                <div class="ad3">
+                    <i class="fa-solid fa-hand-holding-hand"></i>
+                    <h3>Help if you need it</h3>
+                    <h4>In emergency you can share trip details with authority
+                    </h4>
+                    <a href="" class="tag">Learn more</a>
+                </div>
+                <div class="ad4">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <h3>Community Guidelines</h3>
+                    <h4>Our standards help you to create safe connections
+                    </h4>
+                    <a href="" class="tag">Learn more</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="five">
+            <div>
+               <img  #i1 src="/images/1223.jpg" alt="">
+               <div class="first">
+               <h3>Join a fleet</h3>
+               <p>Find and join a fleet partner and
+                start driving for them using the Goid</p>
+                </div>
+            </div>
+            <div class="sec-3-picture">
+                <img #i2 src="/images/1224.jpg" alt="">
+                <div class="first second">
+                <h3>Become a fleet partner</h3>
+                <p>Start making money. Connect your drivers and
+                upload the required documents to your profile.</p>
+                </div>
+                <a href="#">Learn More</a>
+            </div>
+        </section>
+
+        <section class="sec5">
+            <h1>Frequently Asked Questions</h1>
+
+            <div class="faq-box">
+                <div class="faq-wrapper">
+                    <input type="checkbox" class="faq-trigger" id="faq-trigger-1">
+                    <label for="faq-trigger-1" class="faq-title">Can i drive with GoId in my nearest place?</label>
+                    <div class="faq-dtail">
+                        <p>Yes, as long as your company is partnered with GoID, you can drive within the designated areas covered by your corporate network. Check your location’s availability on the website.</p>
+                    </div>
+                </div>
+                <div class="faq-wrapper">
+                    <input type="checkbox" class="faq-trigger" id="faq-trigger-2">
+                    <label for="faq-trigger-2" class="faq-title">Is Goid safe to drive?</label>
+                    <div class="faq-dtail">
+                        <p>Your safety matters to us. Goid has a  Safety Team dedicated to doing our part to help prevent incidents.</p>
+                    </div>
+                </div>
+                <div class="faq-wrapper">
+                    <input type="checkbox" class="faq-trigger" id="faq-trigger-3">
+                    <label for="faq-trigger-3" class="faq-title">What are the requirements to drive with GoID?</label>
+                    <div class="faq-dtail">
+                        <p>You must meet the minimum age to drive have an eligible mode of transportation,
+                            and submit required documents, including a valid driver’s license.  and have at least one year of licensed driving experience.</p>
+                    </div>
+                </div>
+                <div class="faq-wrapper">
+                    <input type="checkbox" class="faq-trigger" id="faq-trigger-4">
+                    <label for="faq-trigger-4" class="faq-title">How can I contact your customer
+                        support?</label>
+                    <div class="faq-dtail">
+                        <p>You can reach our dedicated customer support team by calling our helpline at
+                            7894561237 or by sending an email. Our friendly and knowledgeable support staff will
+                            be happy to assist you with any inquiries, concerns, or special requests you may
+                            have.</p>
+                    </div>
+                </div>
+    
+            </div>
+    
+            </section>
+
+    </div>
+    
+<!-- Include Footer -->
+<%- include('./partials/footer') %>
+</body>
+
+</html>

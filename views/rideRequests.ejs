@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/rideRequests.css">
+    <title>Ride Requests</title>
+</head>
+<body>
+    <h1>Pending Ride Requests</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rider Name</th>
+                <th>Pickup Location</th>
+                <th>Destination</th>
+                <th>Car Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% rideRequests.forEach(request => { %>
+                <tr id="request-<%= request._id %>">
+                    <td><%= request.riderId.eName %></td>
+                    <td><%= request.pickupAddress %></td>
+                    <td><%= request.destinationAddress %></td>
+                    <td><%= request.carType %></td>
+                    <td>
+                        <% if (request.status === 'accepted') { %>
+                            <span>Accepted</span>
+                            <button onclick="viewRideDetails('<%= request._id %>')">View Ride Details</button>
+
+                        <% } else { %>
+                            <button onclick="acceptRequest('<%= request._id %>')">OK</button>
+                            <button onclick="cancelRequest('<%= request._id %>')">Cancel</button>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <script>
+        async function acceptRequest(requestId) {
+            const response = await fetch(`/driver/accept-ride/${requestId}`, { method: 'POST' });
+            const result = await response.json();
+            alert(result.message);
+            location.reload(); // Reload the page to show updated requests
+        }
+
+        async function cancelRequest(requestId) {
+            const response = await fetch(`/driver/cancel-ride/${requestId}`, { method: 'POST' });
+            const result = await response.json();
+            alert(result.message);
+            const row = document.getElementById(`request-${requestId}`);
+            if (row) {
+                row.remove(); // Remove the row from the table
+            }
+        }
+        async function viewRideDetails(requestId) {
+            window.location.href = `/driver/ride-details/${requestId}`; 
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/myaccount.css">
+    <title>PROFILE</title>
+    
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="<%= user.profileIcon ? user.profileIcon : '/images/1.jpg'%>">
+                        <h3><%= user.eName %></h3>
+                    </div>
+                    <hr>
+
+                    <a href="#" class="sub-menu-link">
+                        <img src="/images/3.jpg">
+                        <p>Edit Profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="/images/2.jpg">
+                        <p>Settings and privacy</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="/images/5.jpg">
+                        <p>Help & Support</p>
+                        <span>></span>
+                    </a>
+                    <a href="/logout" class="sub-menu-link">
+                        <img src="/images/4.jpg">
+                        <p>Log Out</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Welcome message -->
+        <div class="account-header">
+            <h2>Welcome to your account, <%= user.eName %>!</h2>
+        </div>
+
+        <!-- Form to display user information -->
+        <div class="account-info-form">
+
+            <form>
+                <label for="photo">Profile:</label>
+                <img src="<%= user.profileIcon ? user.profileIcon : '/images/1.jpg'%>" class="user-pic" onclick="toggleMenu()">
+
+
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <img src="<%= user.profileIcon ? user.profileIcon : '/images/1.jpg'%>">
+                            <h3><%= user.eName %></h3>
+                        </div>
+                        <hr>
+    
+                        <a href="#" class="sub-menu-link">
+                            <img src="/images/3.jpg">
+                            <p>Edit Profile</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="/images/2.jpg">
+                            <p>Settings and privacy</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="/images/5.jpg">
+                            <p>Help & Support</p>
+                            <span>></span>
+                        </a>
+                        <a href="/logout" class="sub-menu-link">
+                            <img src="/images/4.jpg">
+                            <p>Log Out</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" value="<%= user.eName %>" disabled>
+                
+                <label for="employee-id">Employee ID:</label>
+                <input type="text" id="employee-id" value="<%= user.eId %>" disabled>
+
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" value="<%= user.eEmail %>" disabled>
+
+                <label for="contact">Phone Number:</label>
+                <input type="text" id="contact" value="<%= user.contact %>" disabled>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" value="<%= user.eAddress %>" disabled>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let subMenu= document.getElementById("subMenu");
+        function toggleMenu(){
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
+</body>
+</html>
